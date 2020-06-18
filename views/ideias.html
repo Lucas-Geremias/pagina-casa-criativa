@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% set bodyId = "page-ideias" %}
+
+{% block title %}
+    <title>Ideias - Casa Criativa</title>
+{% endblock title%}
+
+
+{% block content %}
+<header>
+    <a href="/">
+        <img src="/logo.png" alt="logo">
+    </a>
+    <nav>
+        <li><a href="/">Início</a></li>
+        <li><a class="button" href="#" onclick="onOff()">Nova Ideía</a></li>
+    </nav>
+</header>
+
+<section id="title">
+
+    <p>em exibição</p>
+    <h1>Ideias</h1>
+
+</section>
+
+<main>
+    <section id="ideas">
+
+        {% for idea in ideas %}
+
+        <div class="idea">
+
+            <img src="{{idea.img}}" alt="Imagem de {{idea.title}}">
+
+            <div class="content">
+                <h3>{{idea.title}}</h3>
+                <p>{{idea.category}}</p>
+                <div class="description">
+                    {{idea.description}}
+                </div>
+                <a href="{{idea.url}}" target="_blank">Ir para idéia</a>
+
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </section>
+</main>
+
+<footer>
+    Desenvolvido por <a href="https://www.linkedin.com/in/lucas-g-79491abb/" target="_blacnk"> Lucas💻</a>
+</footer>
+
+{% endblock %}
